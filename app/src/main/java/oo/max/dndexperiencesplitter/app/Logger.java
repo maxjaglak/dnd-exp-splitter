@@ -1,4 +1,4 @@
-package oo.max.androidcore.log;
+package oo.max.dndexperiencesplitter.app;
 
 import android.util.Log;
 

@@ -1,4 +1,4 @@
-package oo.max.androidcore.db;
+package oo.max.dndexperiencesplitter.db;
 
 import com.google.common.base.Optional;
 import com.j256.ormlite.dao.Dao;
@@ -8,21 +8,22 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 import java.util.List;
 
-import oo.max.androidcore.log.Logger;
+import oo.max.dndexperiencesplitter.app.Logger;
+
 
 public abstract class AbstractDao<T, IdType> {
 
-    protected final AbstractDatabaseHelper abstractDatabaseHelper;
+    protected final DatabaseHelper databaseHelper;
     protected final Class<T> clazz;
 
     protected final Dao<T, IdType> dao;
 
-    protected AbstractDao(AbstractDatabaseHelper abstractDatabaseHelper, Class<T> clazz) {
-        this.abstractDatabaseHelper = abstractDatabaseHelper;
+    protected AbstractDao(DatabaseHelper databaseHelper, Class<T> clazz) {
+        this.databaseHelper = databaseHelper;
         this.clazz = clazz;
 
         try {
-            dao = DaoManager.createDao(abstractDatabaseHelper.getConnectionSource(), clazz);
+            dao = DaoManager.createDao(databaseHelper.getConnectionSource(), clazz);
         } catch (SQLException e) {
             Logger.error(e);
             throw new RuntimeException(e);

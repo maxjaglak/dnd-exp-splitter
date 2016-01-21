@@ -1,9 +1,10 @@
-package oo.max.androidcore.db;
+package oo.max.dndexperiencesplitter.db;
 
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.google.common.collect.ImmutableList;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
@@ -11,19 +12,25 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 import java.util.List;
 
-import oo.max.androidcore.log.Logger;
+import javax.inject.Singleton;
 
-public abstract class AbstractDatabaseHelper extends OrmLiteSqliteOpenHelper {
+import oo.max.dndexperiencesplitter.app.Logger;
 
-    protected AbstractDatabaseHelper(Context context, String name, int version) {
-        super(context, name, null, version);
+
+@Singleton
+public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
+
+    private final List<Class> clazzes = ImmutableList.of();
+
+    public DatabaseHelper(Context context) {
+        super(context, "oo.max.dndexpsplitter", null, 1);
         getWritableDatabase();
     }
 
     @Override
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
-            for (Class<?> clazz : getClazzes()) {
+            for (Class<?> clazz : clazzes) {
                 TableUtils.createTable(connectionSource, clazz);
             }
         } catch (SQLException e) {
@@ -44,10 +51,9 @@ public abstract class AbstractDatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     private void dropAllTables(ConnectionSource connectionSource) throws SQLException {
-        for (Class<?> clazz : getClazzes()) {
+        for (Class<?> clazz : clazzes) {
             TableUtils.dropTable(connectionSource, clazz, true);
         }
     }
 
-    protected abstract List<Class<?>> getClazzes();
 }
