@@ -43,7 +43,6 @@ public class InitializeInjectorActionTest {
     public void shouldInitApplicationClassWhenRunningInitializing() {
         //when
         initializeInjectorAction.init();
-        initializeInjectorAction.initAsyncTask.doInBackground(null);
 
         //then
         Mockito.verify(expApplication, times(1)).init();

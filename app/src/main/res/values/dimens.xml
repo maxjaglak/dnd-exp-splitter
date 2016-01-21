@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="card.radius.default">2dp</dimen>
+    <dimen name="card.elevation.default">2dp</dimen>
+    <dimen name="margin.dialog">100dp</dimen>
+
+
+</resources>
