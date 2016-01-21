@@ -30,6 +30,10 @@ android {
         }
     }
 
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+    }
+
     testOptions {
         unitTests.returnDefaultValues = true
     }
@@ -53,6 +57,8 @@ dependencies {
     apt "org.projectlombok:lombok:1.12.6"
 
     compile 'com.j256.ormlite:ormlite-android:4.48'
+
+    compile 'com.jakewharton:butterknife:7.0.1'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.robolectric:robolectric:3.0'

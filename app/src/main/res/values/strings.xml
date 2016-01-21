@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Dnd Experience Splitter</string>
     <string name="splash_screen_name">Dnd Exp Splitter</string>
+    <string name="players">Players</string>
+    <string name="categories">Categories</string>
+    <string name="run_survey">Run survey</string>
 </resources>

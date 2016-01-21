@@ -28,7 +28,7 @@ public class InitializeInjectorAction {
 
     protected void after() {
         Intent intent = new Intent(context, MainActivity.class);
-        intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(intent);
     }
 
