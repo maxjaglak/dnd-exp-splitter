@@ -12,4 +12,9 @@
     <string name="player_name_required">Name is required!</string>
     <string name="delete_question">Delete?</string>
     <string name="player_deleted">Player deleted</string>
+    <string name="value">Value</string>
+    <string name="enter_category_name">Enter category name</string>
+    <string name="enter_category_value">Enter category value</string>
+    <string name="default_category_value">1</string>
+    <string name="category_value_required">Category value must not be empty!</string>
 </resources>

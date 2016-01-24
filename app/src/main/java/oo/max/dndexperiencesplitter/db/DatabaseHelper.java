@@ -13,14 +13,16 @@ import java.sql.SQLException;
 import java.util.List;
 
 import oo.max.dndexperiencesplitter.app.Logger;
+import oo.max.dndexperiencesplitter.category.model.Category;
 import oo.max.dndexperiencesplitter.player.model.Player;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
-    private final List<Class<Player>> clazzes = ImmutableList.of(Player.class);
+    private final List<Class<?>> clazzes = ImmutableList.of(Player.class,
+            Category.class);
 
     public DatabaseHelper(Context context) {
-        super(context, "oo.max.dndexpsplitter", null, 2);
+        super(context, "oo.max.dndexpsplitter", null, 3);
         getWritableDatabase();
     }
 

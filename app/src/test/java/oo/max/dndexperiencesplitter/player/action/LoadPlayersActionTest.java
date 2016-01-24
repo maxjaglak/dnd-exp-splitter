@@ -49,7 +49,7 @@ public class LoadPlayersActionTest {
         when(playerDao.get()).thenReturn(players);
 
         //when
-        loadPlayersAction.loadPlayers(recyclerView);
+        loadPlayersAction.load(recyclerView);
         loadPlayersAction.loadInBackground();
         loadPlayersAction.after();
 

@@ -11,12 +11,12 @@ import oo.max.dndexperiencesplitter.player.adapter.PlayerViewHolder;
 import oo.max.dndexperiencesplitter.player.dao.PlayerDao;
 import oo.max.dndexperiencesplitter.player.model.Player;
 
-public class PlayerSwipeRemoveAction extends ItemTouchHelper.Callback {
+public class PlayerSwipeToDeleteAction extends ItemTouchHelper.Callback {
 
     private final PlayerDao playerDao;
 
     @Inject
-    public PlayerSwipeRemoveAction(PlayerDao playerDao) {
+    public PlayerSwipeToDeleteAction(PlayerDao playerDao) {
         this.playerDao = playerDao;
     }
 

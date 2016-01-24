@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import butterknife.OnClick;
 import oo.max.dndexperiencesplitter.R;
+import oo.max.dndexperiencesplitter.category.activity.CategoryListActivity;
 import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
 import oo.max.dndexperiencesplitter.player.activity.PlayerListActivity;
 
@@ -19,5 +20,10 @@ public class MainActivity extends AbstractBaseActivity{
     @OnClick(R.id.players)
     public void startPlayersActivity() {
         startActivity(new Intent(this, PlayerListActivity.class));
+    }
+
+    @OnClick(R.id.categories)
+    public void startCategoriesActivity() {
+        startActivity(new Intent(this, CategoryListActivity.class));
     }
 }

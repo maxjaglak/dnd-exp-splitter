@@ -12,7 +12,7 @@ import butterknife.OnClick;
 import oo.max.dndexperiencesplitter.R;
 import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
 import oo.max.dndexperiencesplitter.player.action.LoadPlayersAction;
-import oo.max.dndexperiencesplitter.player.action.PlayerSwipeRemoveAction;
+import oo.max.dndexperiencesplitter.player.action.PlayerSwipeToDeleteAction;
 import oo.max.dndexperiencesplitter.player.dialog.AddPlayerFragment;
 import oo.max.dndexperiencesplitter.player.event.PlayerUpdatedEvent;
 
@@ -28,7 +28,7 @@ public class PlayerListActivity extends AbstractBaseActivity {
     LoadPlayersAction loadPlayersAction;
 
     @Inject
-    PlayerSwipeRemoveAction playerSwipeRemoveAction;
+    PlayerSwipeToDeleteAction playerSwipeToDeleteAction;
 
     private ItemTouchHelper itemTouchHelper;
 
@@ -37,8 +37,8 @@ public class PlayerListActivity extends AbstractBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_list);
 
-        loadPlayersAction.loadPlayers(recyclerView);
-        itemTouchHelper = new ItemTouchHelper(playerSwipeRemoveAction);
+        loadPlayersAction.load(recyclerView);
+        itemTouchHelper = new ItemTouchHelper(playerSwipeToDeleteAction);
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
@@ -48,6 +48,6 @@ public class PlayerListActivity extends AbstractBaseActivity {
     }
 
     public void onEventMainThread(PlayerUpdatedEvent event) {
-        loadPlayersAction.loadPlayers(recyclerView);
+        loadPlayersAction.load(recyclerView);
     }
 }
