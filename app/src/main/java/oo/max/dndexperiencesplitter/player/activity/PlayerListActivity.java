@@ -1,8 +1,9 @@
 package oo.max.dndexperiencesplitter.player.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Button;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import javax.inject.Inject;
 
@@ -11,6 +12,7 @@ import butterknife.OnClick;
 import oo.max.dndexperiencesplitter.R;
 import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
 import oo.max.dndexperiencesplitter.player.action.LoadPlayersAction;
+import oo.max.dndexperiencesplitter.player.action.PlayerSwipeRemoveAction;
 import oo.max.dndexperiencesplitter.player.dialog.AddPlayerFragment;
 import oo.max.dndexperiencesplitter.player.event.PlayerUpdatedEvent;
 
@@ -20,10 +22,15 @@ public class PlayerListActivity extends AbstractBaseActivity {
     RecyclerView recyclerView;
 
     @Bind(R.id.add)
-    Button add;
+    FloatingActionButton add;
 
     @Inject
     LoadPlayersAction loadPlayersAction;
+
+    @Inject
+    PlayerSwipeRemoveAction playerSwipeRemoveAction;
+
+    private ItemTouchHelper itemTouchHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,8 @@ public class PlayerListActivity extends AbstractBaseActivity {
         setContentView(R.layout.activity_player_list);
 
         loadPlayersAction.loadPlayers(recyclerView);
+        itemTouchHelper = new ItemTouchHelper(playerSwipeRemoveAction);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     @OnClick(R.id.add)

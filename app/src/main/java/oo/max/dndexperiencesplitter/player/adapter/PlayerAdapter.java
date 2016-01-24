@@ -38,6 +38,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerViewHolder> {
     public void onBindViewHolder(PlayerViewHolder holder, int position) {
         Player player = players.get(position);
         holder.name.setText(player.getName());
+        holder.setPlayer(player);
     }
 
     @Override

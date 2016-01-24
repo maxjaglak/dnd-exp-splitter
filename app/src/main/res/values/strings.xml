@@ -10,4 +10,6 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="player_name_required">Name is required!</string>
+    <string name="delete_question">Delete?</string>
+    <string name="player_deleted">Player deleted</string>
 </resources>

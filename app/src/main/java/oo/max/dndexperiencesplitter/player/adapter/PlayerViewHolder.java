@@ -6,12 +6,19 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import lombok.Getter;
+import lombok.Setter;
 import oo.max.dndexperiencesplitter.R;
+import oo.max.dndexperiencesplitter.player.model.Player;
 
+@Getter
 public class PlayerViewHolder extends RecyclerView.ViewHolder {
 
     @Bind(R.id.name)
     TextView name;
+
+    @Setter
+    private Player player;
 
     public PlayerViewHolder(View itemView) {
         super(itemView);
