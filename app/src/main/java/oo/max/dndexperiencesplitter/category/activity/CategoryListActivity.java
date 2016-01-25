@@ -29,6 +29,7 @@ public class CategoryListActivity extends AbstractBaseActivity {
 
     @Inject
     CategorySwipeToDeleteAction categorySwipeToDeleteAction;
+    
     private ItemTouchHelper itemTouchHelper;
 
     @Override
