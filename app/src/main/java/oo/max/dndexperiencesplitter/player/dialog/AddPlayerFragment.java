@@ -65,12 +65,12 @@ public class AddPlayerFragment extends DialogFragment {
 
     @OnTextChanged(R.id.player_name)
     public void onNameTextChanged() {
-        validate();
+        validatePlayer();
     }
 
     @OnTextChanged(R.id.character_name)
     public void onCharacterNameTextChanged() {
-        validate();
+        validateCharacter();
     }
 
     @OnClick(R.id.cancel)
@@ -88,16 +88,26 @@ public class AddPlayerFragment extends DialogFragment {
     }
 
     private boolean validate() {
-        if(playerName.getText().toString().isEmpty()) {
-            playerName.setError(getActivity().getString(R.string.player_name_required));
-            return false;
-        }
+        if (!validatePlayer()) return false;
 
+        if (!validateCharacter()) return false;
+
+        return true;
+    }
+
+    private boolean validateCharacter() {
         if(characterName.getText().toString().isEmpty()) {
             characterName.setError(getActivity().getString(R.string.character_name_validation_message));
             return false;
         }
+        return true;
+    }
 
+    private boolean validatePlayer() {
+        if(playerName.getText().toString().isEmpty()) {
+            playerName.setError(getActivity().getString(R.string.player_name_required));
+            return false;
+        }
         return true;
     }
 
