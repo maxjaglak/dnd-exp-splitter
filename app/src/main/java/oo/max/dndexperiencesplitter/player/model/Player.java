@@ -21,4 +21,7 @@ public class Player  {
     @DatabaseField
     private String name;
 
+    @DatabaseField
+    private String characterName;
+
 }

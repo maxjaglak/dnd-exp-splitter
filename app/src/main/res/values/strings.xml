@@ -17,4 +17,7 @@
     <string name="enter_category_value">Enter category value</string>
     <string name="default_category_value">1</string>
     <string name="category_value_required">Category value must not be empty!</string>
+    <string name="character_name_label">Enter character\'s name</string>
+    <string name="character_name">Character name</string>
+    <string name="character_name_validation_message">Character name is required</string>
 </resources>

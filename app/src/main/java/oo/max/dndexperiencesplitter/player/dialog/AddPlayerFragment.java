@@ -17,6 +17,7 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnTextChanged;
 import de.greenrobot.event.EventBus;
 import oo.max.dndexperiencesplitter.R;
 import oo.max.dndexperiencesplitter.app.ExpApplication;
@@ -31,6 +32,9 @@ public class AddPlayerFragment extends DialogFragment {
 
     @Bind(R.id.player_name)
     EditText playerName;
+
+    @Bind(R.id.character_name)
+    EditText characterName;
 
     @Inject
     EventBus eventBus;
@@ -59,6 +63,16 @@ public class AddPlayerFragment extends DialogFragment {
                 .show();
     }
 
+    @OnTextChanged(R.id.player_name)
+    public void onNameTextChanged() {
+        validate();
+    }
+
+    @OnTextChanged(R.id.character_name)
+    public void onCharacterNameTextChanged() {
+        validate();
+    }
+
     @OnClick(R.id.cancel)
     public void cancel() {
         dismiss();
@@ -79,12 +93,18 @@ public class AddPlayerFragment extends DialogFragment {
             return false;
         }
 
+        if(characterName.getText().toString().isEmpty()) {
+            characterName.setError(getActivity().getString(R.string.character_name_validation_message));
+            return false;
+        }
+
         return true;
     }
 
     private void saveNewPlayer() {
         Player player = Player.builder()
                 .name(playerName.getText().toString())
+                .characterName(characterName.getText().toString())
                 .build();
 
         new SavePlayerTask(player).execute();

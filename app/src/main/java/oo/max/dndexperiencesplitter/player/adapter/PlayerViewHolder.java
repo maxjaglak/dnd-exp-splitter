@@ -17,6 +17,9 @@ public class PlayerViewHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.name)
     TextView name;
 
+    @Bind(R.id.character_name)
+    TextView characterName;
+
     @Setter
     private Player player;
 
