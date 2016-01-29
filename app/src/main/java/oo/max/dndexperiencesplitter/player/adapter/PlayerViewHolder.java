@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import lombok.Getter;
 import lombok.Setter;
 import oo.max.dndexperiencesplitter.R;
@@ -23,8 +24,18 @@ public class PlayerViewHolder extends RecyclerView.ViewHolder {
     @Setter
     private Player player;
 
-    public PlayerViewHolder(View itemView) {
+    private final PlayerActionListener playerActionListener;
+
+    public PlayerViewHolder(View itemView, PlayerActionListener playerActionListener) {
         super(itemView);
+        this.playerActionListener = playerActionListener;
         ButterKnife.bind(this, itemView);
     }
+
+    @OnClick(R.id.card_view)
+    public void editPlayer() {
+        playerActionListener.editPlayer(player);
+    }
+
+
 }

@@ -44,7 +44,7 @@ public class PlayerListActivity extends AbstractBaseActivity {
 
     @OnClick(R.id.add)
     public void addNewPlayer() {
-        AddPlayerFragment.show(getSupportFragmentManager());
+        AddPlayerFragment.addNewPlayer(getSupportFragmentManager());
     }
 
     public void onEventMainThread(PlayerUpdatedEvent event) {

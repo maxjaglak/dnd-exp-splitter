@@ -8,9 +8,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
+import com.google.common.base.Function;
+import com.google.common.base.Optional;
 
 import javax.inject.Inject;
 
@@ -21,12 +29,14 @@ import butterknife.OnTextChanged;
 import de.greenrobot.event.EventBus;
 import oo.max.dndexperiencesplitter.R;
 import oo.max.dndexperiencesplitter.app.ExpApplication;
+import oo.max.dndexperiencesplitter.core.AsyncLoader;
 import oo.max.dndexperiencesplitter.player.dao.PlayerDao;
 import oo.max.dndexperiencesplitter.player.event.PlayerUpdatedEvent;
 import oo.max.dndexperiencesplitter.player.model.Player;
 
-public class AddPlayerFragment extends DialogFragment {
+public class AddPlayerFragment extends DialogFragment implements LoaderManager.LoaderCallbacks {
 
+    public static final String PLAYER_ID = "playerId";
     @Inject
     PlayerDao playerDao;
 
@@ -36,10 +46,27 @@ public class AddPlayerFragment extends DialogFragment {
     @Bind(R.id.character_name)
     EditText characterName;
 
+    @Bind(R.id.container)
+    LinearLayout container;
+
+    @Bind(R.id.progress_bar_container)
+    RelativeLayout progressBarContainer;
+
     @Inject
     EventBus eventBus;
 
-    public static void show(FragmentManager fragmentManager) {
+    private long playerId = -1;
+    private Optional<Player> player = Optional.absent();
+
+    public static void editPlayer(Player player, FragmentManager fragmentManager) {
+        AddPlayerFragment addPlayerFragment = new AddPlayerFragment();
+        Bundle bundle = new Bundle();
+        bundle.putLong(PLAYER_ID, player.getId());
+        addPlayerFragment.setArguments(bundle);
+        addPlayerFragment.show(fragmentManager, AddPlayerFragment.class.getSimpleName());
+    }
+
+    public static void addNewPlayer(FragmentManager fragmentManager) {
         AddPlayerFragment addPlayerFragment = new AddPlayerFragment();
         addPlayerFragment.show(fragmentManager, AddPlayerFragment.class.getSimpleName());
     }
@@ -48,6 +75,9 @@ public class AddPlayerFragment extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ExpApplication.getApp(getActivity()).getInjector().getApplicationComponent().inject(this);
+        if(getArguments()!=null) {
+            playerId = getArguments().getLong(PLAYER_ID, -1);
+        }
     }
 
     @NonNull
@@ -61,6 +91,51 @@ public class AddPlayerFragment extends DialogFragment {
         return new AlertDialog.Builder(getActivity())
                 .setView(view)
                 .show();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(playerId >= 0) {
+            showWaitingLoader();
+            getLoaderManager().restartLoader(0, null, this);
+        }
+    }
+
+    private void showWaitingLoader() {
+        progressBarContainer.setVisibility(View.VISIBLE);
+        ViewGroup.LayoutParams layoutParams = progressBarContainer.getLayoutParams();
+        layoutParams.height = container.getMeasuredHeight();
+        progressBarContainer.setLayoutParams(layoutParams);
+    }
+
+    @Override
+    public Loader onCreateLoader(int id, Bundle args) {
+        return new AsyncLoader(getActivity()) {
+            @Override
+            protected Object load() {
+                player = playerDao.getById(playerId);
+                return null;
+            }
+        };
+    }
+
+    @Override
+    public void onLoadFinished(Loader loader, Object data) {
+        hideLoader();
+        if(player.isPresent()) {
+            playerName.setText(player.get().getName());
+            characterName.setText(player.get().getCharacterName());
+        }
+    }
+
+    private void hideLoader() {
+        progressBarContainer.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onLoaderReset(Loader loader) {
+        //nothing
     }
 
     @OnTextChanged(R.id.player_name)
@@ -84,7 +159,7 @@ public class AddPlayerFragment extends DialogFragment {
             return;
         }
 
-        saveNewPlayer();
+        savePlayer();
     }
 
     private boolean validate() {
@@ -111,8 +186,18 @@ public class AddPlayerFragment extends DialogFragment {
         return true;
     }
 
-    private void saveNewPlayer() {
+    private void savePlayer() {
+        showWaitingLoader();
+
+        Long id = this.player.transform(new Function<Player, Long>() {
+            @Override
+            public Long apply(Player input) {
+                return input.getId();
+            }
+        }).orNull();
+
         Player player = Player.builder()
+                .id(id)
                 .name(playerName.getText().toString())
                 .characterName(characterName.getText().toString())
                 .build();
@@ -130,12 +215,17 @@ public class AddPlayerFragment extends DialogFragment {
 
         @Override
         protected Object doInBackground(Object[] params) {
-            playerDao.save(player);
+            if(player.getId() != null) {
+                playerDao.update(player);
+            } else {
+                playerDao.save(player);
+            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Object o) {
+            hideLoader();
             eventBus.post(new PlayerUpdatedEvent());
             dismiss();
         }

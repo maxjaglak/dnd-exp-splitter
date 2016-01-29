@@ -16,13 +16,18 @@ import oo.max.dndexperiencesplitter.player.model.Player;
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerViewHolder> {
 
     private final Context context;
+    private final PlayerActionListener playerActionListener;
 
     @Getter
     private final List<Player> players;
+
     private final LayoutInflater inflater;
 
-    public PlayerAdapter(Context context, List<Player> players) {
+    public PlayerAdapter(Context context,
+                         List<Player> players,
+                         PlayerActionListener playerActionListener) {
         this.context = context;
+        this.playerActionListener = playerActionListener;
         this.players = new ArrayList<>(players);
         inflater = LayoutInflater.from(context);
     }
@@ -30,7 +35,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerViewHolder> {
     @Override
     public PlayerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.view_player_item, parent, false);
-        PlayerViewHolder playerViewHolder = new PlayerViewHolder(view);
+        PlayerViewHolder playerViewHolder = new PlayerViewHolder(view, playerActionListener);
         return playerViewHolder;
     }
 

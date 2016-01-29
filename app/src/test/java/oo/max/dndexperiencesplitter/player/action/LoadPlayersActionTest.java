@@ -1,5 +1,7 @@
 package oo.max.dndexperiencesplitter.player.action;
 
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.google.common.collect.ImmutableList;
@@ -29,10 +31,19 @@ public class LoadPlayersActionTest {
     @Mock
     RecyclerView recyclerView;
 
+    @Mock
+    FragmentActivity fragmentActivity;
+
+    @Mock
+    FragmentManager fragmentManager;
+
     private LoadPlayersAction loadPlayersAction;
 
     @Before
     public void setup() {
+        when(fragmentActivity.getSupportFragmentManager()).thenReturn(fragmentManager);
+        when(recyclerView.getContext()).thenReturn(fragmentActivity);
+
         loadPlayersAction = new LoadPlayersAction(playerDao);
     }
 
