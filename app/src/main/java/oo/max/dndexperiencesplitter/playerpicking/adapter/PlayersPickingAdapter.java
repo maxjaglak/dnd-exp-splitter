@@ -48,6 +48,7 @@ public class PlayersPickingAdapter extends RecyclerView.Adapter<PlayerPickingVie
         holder.setPlayer(player);
         holder.getPlayerName().setText(player.getName());
         holder.getCharacterName().setText(player.getCharacterName());
+        holder.getGameMaster().setVisibility(player.isGameMaster() ? View.VISIBLE : View.GONE);
         if(pickedPlayers.contains(player)) {
             holder.getContainer().setBackgroundColor(Color.BLUE);
         } else {

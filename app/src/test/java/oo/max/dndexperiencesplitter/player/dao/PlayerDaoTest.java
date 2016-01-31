@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import oo.max.dndexperiencesplitter.db.DatabaseHelper;
@@ -73,6 +74,25 @@ public class PlayerDaoTest {
 
         //then
         Assertions.assertThat(players).extracting("id").contains(1l, 2l);
+    }
+
+    @Test
+    public void shouldUnsetGameMasterFlagFromAllPlayers() throws NoSuchFieldException, IllegalAccessException {
+        //given
+        Field gmField = Player.class.getDeclaredField("gameMaster");
+        gmField.setAccessible(true);
+
+        gmField.set(player1, true);
+        playerDao.update(player1);
+
+        gmField.set(player2, true);
+        playerDao.update(player2);
+
+        //when
+        playerDao.unsetGameMasterFromAllPlayers();
+
+        //then
+        Assertions.assertThat(playerDao.get()).extracting("gameMaster").containsOnly(false);
     }
 
 }

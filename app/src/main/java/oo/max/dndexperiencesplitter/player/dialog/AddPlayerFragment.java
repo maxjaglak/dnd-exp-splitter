@@ -13,6 +13,7 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -51,6 +52,9 @@ public class AddPlayerFragment extends DialogFragment implements LoaderManager.L
 
     @Bind(R.id.progress_bar_container)
     RelativeLayout progressBarContainer;
+
+    @Bind(R.id.game_master)
+    CheckBox gameMaster;
 
     @Inject
     EventBus eventBus;
@@ -126,6 +130,7 @@ public class AddPlayerFragment extends DialogFragment implements LoaderManager.L
         if(player.isPresent()) {
             playerName.setText(player.get().getName());
             characterName.setText(player.get().getCharacterName());
+            gameMaster.setChecked(player.get().isGameMaster());
         }
     }
 
@@ -200,6 +205,7 @@ public class AddPlayerFragment extends DialogFragment implements LoaderManager.L
                 .id(id)
                 .name(playerName.getText().toString())
                 .characterName(characterName.getText().toString())
+                .gameMaster(gameMaster.isChecked())
                 .build();
 
         new SavePlayerTask(player).execute();
@@ -215,6 +221,10 @@ public class AddPlayerFragment extends DialogFragment implements LoaderManager.L
 
         @Override
         protected Object doInBackground(Object[] params) {
+            if(player.isGameMaster()) {
+                playerDao.unsetGameMasterFromAllPlayers();
+            }
+
             if(player.getId() != null) {
                 playerDao.update(player);
             } else {

@@ -4,7 +4,9 @@ import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
 import com.google.common.collect.FluentIterable;
+import com.j256.ormlite.stmt.UpdateBuilder;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -49,5 +51,15 @@ public class PlayerDao extends AbstractDao<Player, Long> {
                         return input.get();
                     }
                 }).toList();
+    }
+
+    public void unsetGameMasterFromAllPlayers() {
+        try {
+            UpdateBuilder<Player, Long> updateBuilder = dao.updateBuilder();
+            updateBuilder.updateColumnValue("gameMaster", false);
+            updateBuilder.update();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

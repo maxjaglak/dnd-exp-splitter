@@ -26,6 +26,7 @@ public class Player  {
     @DatabaseField
     private String characterName;
 
+    @DatabaseField
     private boolean gameMaster = false;
 
 }

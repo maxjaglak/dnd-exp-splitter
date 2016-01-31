@@ -22,7 +22,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Category.class);
 
     public DatabaseHelper(Context context) {
-        super(context, "oo.max.dndexpsplitter", null, 4);
+        super(context, "oo.max.dndexpsplitter", null, 5);
         getWritableDatabase();
     }
 

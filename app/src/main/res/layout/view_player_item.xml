@@ -27,6 +27,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:id="@+id/game_master"
+                android:text="@string/game_master_list_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

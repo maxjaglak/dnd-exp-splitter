@@ -44,6 +44,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerViewHolder> {
         Player player = players.get(position);
         holder.name.setText(player.getName());
         holder.characterName.setText(player.getCharacterName());
+        holder.gameMaster.setVisibility(player.isGameMaster() ? View.VISIBLE : View.GONE);
         holder.setPlayer(player);
     }
 

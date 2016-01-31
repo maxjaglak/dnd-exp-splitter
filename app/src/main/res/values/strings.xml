@@ -30,4 +30,6 @@
     <string name="max_bonus_label">Max bonus:</string>
     <string name="value_is_required">Value is required!</string>
     <string name="value_must_be_a_number">Value must be a number!</string>
+    <string name="game_master_label">Game master</string>
+    <string name="game_master_list_label">(game master)</string>
 </resources>

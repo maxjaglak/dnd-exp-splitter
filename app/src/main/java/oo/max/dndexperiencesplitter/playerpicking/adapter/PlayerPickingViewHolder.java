@@ -25,6 +25,9 @@ public class PlayerPickingViewHolder extends RecyclerView.ViewHolder{
     @Bind(R.id.container)
     LinearLayout container;
 
+    @Bind(R.id.game_master)
+    TextView gameMaster;
+
     @Setter
     private Player player;
 
