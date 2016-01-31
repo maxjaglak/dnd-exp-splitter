@@ -13,6 +13,7 @@ import butterknife.Bind;
 import butterknife.OnClick;
 import oo.max.dndexperiencesplitter.R;
 import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
+import oo.max.dndexperiencesplitter.expsplitting.activity.MaxExpActivity;
 import oo.max.dndexperiencesplitter.expsplitting.activity.SurveyActivity;
 import oo.max.dndexperiencesplitter.player.model.Player;
 import oo.max.dndexperiencesplitter.playerpicking.action.LoadPlayersForPickingAction;
@@ -44,10 +45,9 @@ public class PickPlayersActivity extends AbstractBaseActivity {
         }
 
         PickingRequest pickingRequest = new PickingRequest(getPickedPlayersFromAdapter());
-        Intent intent = new Intent(this, SurveyActivity.class);
+        Intent intent = new Intent(this, MaxExpActivity.class);
         intent.putExtra(SurveyActivity.PICKING_REQUEST_PARAM, pickingRequest);
         startActivity(intent);
-        finish();
     }
 
     private boolean validate() {

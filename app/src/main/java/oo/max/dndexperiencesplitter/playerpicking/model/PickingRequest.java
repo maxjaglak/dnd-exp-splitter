@@ -8,12 +8,19 @@ import java.util.List;
 import java.util.Set;
 
 import lombok.Getter;
+import lombok.Setter;
 import oo.max.dndexperiencesplitter.player.model.Player;
 
+@Getter
 public class PickingRequest implements Serializable{
 
-    @Getter
     private final List<Long> playerIds;
+
+    @Setter
+    private int baseExp;
+
+    @Setter
+    private int maxBonus;
 
     public PickingRequest(Set<Player> pickedPlayers) {
         playerIds = FluentIterable.from(pickedPlayers).transform(new Function<Player, Long>() {

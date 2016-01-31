@@ -12,6 +12,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 import oo.max.dndexperiencesplitter.R;
 import oo.max.dndexperiencesplitter.category.model.Category;
 import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
@@ -108,4 +109,13 @@ public class SurveyActivity extends AbstractBaseActivity implements LoadPlayersA
         progressBarContainer.setVisibility(View.GONE);
     }
 
+    @OnClick(R.id.split)
+    public void splitExp() {
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        //nothing
+    }
 }

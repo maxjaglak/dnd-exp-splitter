@@ -26,4 +26,8 @@
     <string name="current_player_label">You are: (swipe to select)</string>
     <string name="assess_player_label">Assess player:</string>
     <string name="split_button_label">Split exp!</string>
+    <string name="base_exp_label">Base exp:</string>
+    <string name="max_bonus_label">Max bonus:</string>
+    <string name="value_is_required">Value is required!</string>
+    <string name="value_must_be_a_number">Value must be a number!</string>
 </resources>
