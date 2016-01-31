@@ -80,6 +80,7 @@ public class PlayersPickingAdapterTest  {
         Mockito.when(viewHolder.getContainer()).thenReturn(container);
         Mockito.when(viewHolder.getPlayerName()).thenReturn(someTextView);
         Mockito.when(viewHolder.getCharacterName()).thenReturn(someTextView);
+        Mockito.when(viewHolder.getGameMaster()).thenReturn(someTextView);
 
         adapter.onPlayerSelected(player);
 
@@ -99,6 +100,7 @@ public class PlayersPickingAdapterTest  {
         Mockito.when(viewHolder.getContainer()).thenReturn(container);
         Mockito.when(viewHolder.getPlayerName()).thenReturn(someTextView);
         Mockito.when(viewHolder.getCharacterName()).thenReturn(someTextView);
+        Mockito.when(viewHolder.getGameMaster()).thenReturn(someTextView);
 
         //when
         adapter.onBindViewHolder(viewHolder, 0);
