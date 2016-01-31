@@ -7,6 +7,7 @@ import oo.max.dndexperiencesplitter.category.AddCategoryFragment;
 import oo.max.dndexperiencesplitter.category.activity.CategoryListActivity;
 import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
 import oo.max.dndexperiencesplitter.expsplitting.activity.MaxExpActivity;
+import oo.max.dndexperiencesplitter.expsplitting.activity.ResultPreviewActivity;
 import oo.max.dndexperiencesplitter.expsplitting.activity.SurveyActivity;
 import oo.max.dndexperiencesplitter.expsplitting.view.AssessPlayerView;
 import oo.max.dndexperiencesplitter.menu.activity.MainActivity;
@@ -32,4 +33,5 @@ public interface ApplicationComponent {
     void inject(SurveyActivity surveyActivity);
 
     void inject(AssessPlayerView assessPlayerView);
+    void inject(ResultPreviewActivity resultPreviewActivity);
 }

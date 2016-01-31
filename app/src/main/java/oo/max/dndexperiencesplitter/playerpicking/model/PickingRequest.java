@@ -9,6 +9,7 @@ import java.util.Set;
 
 import lombok.Getter;
 import lombok.Setter;
+import oo.max.dndexperiencesplitter.expsplitting.model.ExpParam;
 import oo.max.dndexperiencesplitter.player.model.Player;
 
 @Getter
@@ -29,6 +30,13 @@ public class PickingRequest implements Serializable{
                 return input.getId();
             }
         }).toList();
+    }
+
+    public ExpParam getExpParam() {
+        return ExpParam.builder()
+                .baseExp(baseExp)
+                .maxBonus(maxBonus)
+                .build();
     }
 
 }

@@ -22,6 +22,7 @@
         <activity android:name=".playerpicking.activity.PickPlayersActivity"/>
         <activity android:name=".expsplitting.activity.MaxExpActivity"/>
         <activity android:name=".expsplitting.activity.SurveyActivity"/>
+        <activity android:name=".expsplitting.activity.ResultPreviewActivity"/>
 
     </application>
 

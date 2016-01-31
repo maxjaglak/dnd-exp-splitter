@@ -32,4 +32,6 @@
     <string name="value_must_be_a_number">Value must be a number!</string>
     <string name="game_master_label">Game master</string>
     <string name="game_master_list_label">(game master)</string>
+    <string name="total_exp_label">Total exp:</string>
+    <string name="bonus_exp_label">Bonus exp:</string>
 </resources>

@@ -1,5 +1,6 @@
 package oo.max.dndexperiencesplitter.expsplitting.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -67,7 +68,7 @@ public class SurveyActivity extends AbstractBaseActivity implements LoadPlayersA
         this.categories = categories;
         playersViewPager.setAdapter(new CurrentPlayerAdapter(getSupportFragmentManager(), players));
         playersViewPager.addOnPageChangeListener(buildOnPageChangeListener());
-        expSplittingManager.startSplitting(players, categories);
+        expSplittingManager.startSplitting(players, categories, pickingRequest.getExpParam());
         loadPlayersSurvey(players.get(0));
     }
 
@@ -111,7 +112,8 @@ public class SurveyActivity extends AbstractBaseActivity implements LoadPlayersA
 
     @OnClick(R.id.split)
     public void splitExp() {
-
+        Intent intent = new Intent(this, ResultPreviewActivity.class);
+        startActivity(intent);
     }
 
     @Override
