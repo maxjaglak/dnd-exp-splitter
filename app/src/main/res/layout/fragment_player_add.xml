@@ -58,18 +58,6 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/progress_bar_container"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </RelativeLayout>
+    <include layout="@layout/view_progress"/>
 
 </RelativeLayout>

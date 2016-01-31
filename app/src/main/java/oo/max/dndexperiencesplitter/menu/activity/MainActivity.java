@@ -8,6 +8,7 @@ import oo.max.dndexperiencesplitter.R;
 import oo.max.dndexperiencesplitter.category.activity.CategoryListActivity;
 import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
 import oo.max.dndexperiencesplitter.player.activity.PlayerListActivity;
+import oo.max.dndexperiencesplitter.playerpicking.activity.PickPlayersActivity;
 
 public class MainActivity extends AbstractBaseActivity{
 
@@ -25,5 +26,10 @@ public class MainActivity extends AbstractBaseActivity{
     @OnClick(R.id.categories)
     public void startCategoriesActivity() {
         startActivity(new Intent(this, CategoryListActivity.class));
+    }
+
+    @OnClick(R.id.run)
+    public void startExpSplitting() {
+        startActivity(new Intent(this, PickPlayersActivity.class));
     }
 }

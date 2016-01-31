@@ -4,6 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Builder;
@@ -13,6 +14,7 @@ import lombok.experimental.Builder;
 @NoArgsConstructor
 @AllArgsConstructor(suppressConstructorProperties = true)
 @DatabaseTable(tableName = "players")
+@EqualsAndHashCode(of = "id")
 public class Player  {
 
     @DatabaseField(generatedId = true)
@@ -23,5 +25,7 @@ public class Player  {
 
     @DatabaseField
     private String characterName;
+
+    private boolean gameMaster = false;
 
 }

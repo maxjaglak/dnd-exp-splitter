@@ -6,9 +6,12 @@ import dagger.Component;
 import oo.max.dndexperiencesplitter.category.AddCategoryFragment;
 import oo.max.dndexperiencesplitter.category.activity.CategoryListActivity;
 import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
+import oo.max.dndexperiencesplitter.expsplitting.activity.SurveyActivity;
+import oo.max.dndexperiencesplitter.expsplitting.view.AssessPlayerView;
 import oo.max.dndexperiencesplitter.menu.activity.MainActivity;
 import oo.max.dndexperiencesplitter.player.activity.PlayerListActivity;
 import oo.max.dndexperiencesplitter.player.dialog.AddPlayerFragment;
+import oo.max.dndexperiencesplitter.playerpicking.activity.PickPlayersActivity;
 
 @Component(modules = ApplicationModule.class)
 @Singleton
@@ -23,4 +26,8 @@ public interface ApplicationComponent {
 
     void inject(AddCategoryFragment addCategoryFragment);
     void inject(CategoryListActivity categoryListActivity);
+    void inject(PickPlayersActivity pickPlayersActivity);
+    void inject(SurveyActivity surveyActivity);
+
+    void inject(AssessPlayerView assessPlayerView);
 }

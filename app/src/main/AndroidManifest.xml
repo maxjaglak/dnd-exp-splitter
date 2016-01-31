@@ -19,6 +19,8 @@
         <activity android:name=".menu.activity.MainActivity" />
         <activity android:name=".player.activity.PlayerListActivity" />
         <activity android:name=".category.activity.CategoryListActivity" />
+        <activity android:name=".playerpicking.activity.PickPlayersActivity"/>
+        <activity android:name=".expsplitting.activity.SurveyActivity"/>
 
     </application>
 

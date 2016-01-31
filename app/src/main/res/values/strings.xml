@@ -20,4 +20,10 @@
     <string name="character_name_label">Enter character\'s name</string>
     <string name="character_name">Character name</string>
     <string name="character_name_validation_message">Character name is required</string>
+    <string name="pick_players_label">Pick players to split exp</string>
+    <string name="ok">OK</string>
+    <string name="pick_players_validation_message">Pick some players!</string>
+    <string name="current_player_label">You are: (swipe to select)</string>
+    <string name="assess_player_label">Assess player:</string>
+    <string name="split_button_label">Split exp!</string>
 </resources>
