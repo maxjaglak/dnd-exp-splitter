@@ -5,5 +5,19 @@
     <dimen name="card.elevation.default">2dp</dimen>
     <dimen name="margin.dialog">100dp</dimen>
 
+    <dimen name="margin">10dp</dimen>
+    <dimen name="margin.small">5dp</dimen>
+    <dimen name="margin.big">15dp</dimen>
+    <dimen name="margin.big.double">30dp</dimen>
+
+    <dimen name="text.size">15sp</dimen>
+    <dimen name="text.size.title">20sp</dimen>
+    <dimen name="text.size.hint">12sp</dimen>
+
+    <dimen name="text.minHeight">15dp</dimen>
+
+    <dimen name="button.minHeight">32dp</dimen>
+
+
 
 </resources>

@@ -6,6 +6,38 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/text</item>
+        <item name="android:buttonStyle">@style/button</item>
     </style>
+
+    <style name="container">
+        <item name="android:background">@color/background.container</item>
+        <item name="android:padding">@dimen/margin</item>
+    </style>
+
+    <style name="text">
+        <item name="android:padding">@dimen/margin.small</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textSize">@dimen/text.size</item>
+        <item name="android:textColor">@color/text.color</item>
+        <item name="android:minHeight">@dimen/text.minHeight</item>
+    </style>
+
+    <style name="text.title" parent="text">
+        <item name="android:textSize">@dimen/text.size.title</item>
+    </style>
+
+    <style name="text.hint" parent="text">
+        <item name="android:textSize">@dimen/text.size.hint</item>
+    </style>
+
+    <style name="button" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:padding">@dimen/margin.small</item>
+        <item name="android:textSize">@dimen/text.size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">@dimen/button.minHeight</item>
+    </style>
+
 
 </resources>
