@@ -1,8 +1,10 @@
 package oo.max.dndexperiencesplitter.expsplitting.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -112,8 +114,22 @@ public class SurveyActivity extends AbstractBaseActivity implements LoadPlayersA
 
     @OnClick(R.id.split)
     public void splitExp() {
+        new AlertDialog.Builder(this)
+                .setMessage(getString(R.string.really))
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startResultActivity();
+                    }
+                })
+                .setNeutralButton(R.string.cancel, null)
+                .show();
+    }
+
+    public void startResultActivity() {
         Intent intent = new Intent(this, ResultPreviewActivity.class);
         startActivity(intent);
+        finish();;
     }
 
     @Override

@@ -34,4 +34,6 @@
     <string name="game_master_list_label">(game master)</string>
     <string name="total_exp_label">Total exp:</string>
     <string name="bonus_exp_label">Bonus exp:</string>
+    <string name="really">Really?</string>
+    <string name="exit">Exit?</string>
 </resources>

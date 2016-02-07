@@ -1,6 +1,8 @@
 package oo.max.dndexperiencesplitter.expsplitting.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -32,5 +34,17 @@ public class ResultPreviewActivity extends AbstractBaseActivity {
         expResultsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage(getString(R.string.exit))
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNeutralButton(R.string.cancel, null)
+                .show();
+    }
 }
