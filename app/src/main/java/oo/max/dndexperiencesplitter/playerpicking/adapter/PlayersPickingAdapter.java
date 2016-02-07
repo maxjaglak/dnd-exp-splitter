@@ -1,7 +1,6 @@
 package oo.max.dndexperiencesplitter.playerpicking.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,9 +49,9 @@ public class PlayersPickingAdapter extends RecyclerView.Adapter<PlayerPickingVie
         holder.getCharacterName().setText(player.getCharacterName());
         holder.getGameMaster().setVisibility(player.isGameMaster() ? View.VISIBLE : View.GONE);
         if(pickedPlayers.contains(player)) {
-            holder.getContainer().setBackgroundColor(Color.BLUE);
+            holder.getContainer().setCardBackgroundColor(context.getResources().getColor(R.color.button_normal));
         } else {
-            holder.getContainer().setBackground(null);
+            holder.getContainer().setCardBackgroundColor(context.getResources().getColor(R.color.background_card));
         }
     }
 

@@ -1,8 +1,8 @@
 package oo.max.dndexperiencesplitter.playerpicking.adapter;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.Bind;
@@ -23,7 +23,7 @@ public class PlayerPickingViewHolder extends RecyclerView.ViewHolder{
     TextView characterName;
 
     @Bind(R.id.container)
-    LinearLayout container;
+    CardView container;
 
     @Bind(R.id.game_master)
     TextView gameMaster;

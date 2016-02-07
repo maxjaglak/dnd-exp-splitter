@@ -31,4 +31,6 @@ public class ResultPreviewActivity extends AbstractBaseActivity {
         expResultsRecyclerView.setAdapter(new ResultAdapter(this, expResults));
         expResultsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+
+    
 }

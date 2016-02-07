@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/players"
-        android:text="@string/players"
+    <android.support.v7.widget.CardView
+        style="@style/cardview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/categories"
-        android:text="@string/categories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/run"
-        android:text="@string/run_survey"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/players"
+                style="@style/button.main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/players" />
+
+            <Button
+                android:id="@+id/categories"
+                style="@style/button.main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/categories" />
+
+            <Button
+                android:id="@+id/run"
+                style="@style/button.main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/run_survey" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

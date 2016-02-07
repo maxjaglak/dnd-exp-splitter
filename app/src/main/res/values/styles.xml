@@ -15,6 +15,11 @@
         <item name="android:padding">@dimen/margin</item>
     </style>
 
+    <style name="container.inner">
+        <item name="android:background">@color/background.card</item>
+        <item name="android:padding">@dimen/margin.small</item>
+    </style>
+
     <style name="text">
         <item name="android:padding">@dimen/margin.small</item>
         <item name="android:gravity">left|center_vertical</item>
@@ -25,6 +30,10 @@
 
     <style name="text.title" parent="text">
         <item name="android:textSize">@dimen/text.size.title</item>
+    </style>
+
+    <style name="text.big" parent="text">
+        <item name="android:textSize">@dimen/text.size.big</item>
     </style>
 
     <style name="text.hint" parent="text">
@@ -39,5 +48,15 @@
         <item name="android:minHeight">@dimen/button.minHeight</item>
     </style>
 
+    <style name="button.main" parent="button">
+        <item name="android:layout_margin">@dimen/margin</item>
+        <item name="android:textSize">@dimen/text.size.title</item>
+    </style>
+
+    <style name="cardview" parent="container.inner">
+        <item name="elevation">@dimen/card.elevation.default</item>
+        <item name="cardCornerRadius">@dimen/card.radius.default</item>
+        <item name="cardElevation">@dimen/card.elevation.default</item>
+    </style>
 
 </resources>
