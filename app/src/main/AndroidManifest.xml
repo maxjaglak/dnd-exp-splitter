@@ -23,6 +23,7 @@
         <activity android:name=".expsplitting.activity.MaxExpActivity" android:screenOrientation="portrait"/>
         <activity android:name=".expsplitting.activity.SurveyActivity" android:screenOrientation="portrait"/>
         <activity android:name=".expsplitting.activity.ResultPreviewActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".history.activity.HistoryResultsActivity" android:screenOrientation="portrait"/>
 
     </application>
 

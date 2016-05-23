@@ -1,5 +1,6 @@
 package oo.max.dndexperiencesplitter.history.model;
 
+import com.google.common.base.Joiner;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -32,4 +33,7 @@ public class PlayerHistoryEntry {
     @DatabaseField(foreign = true, columnName = "players", foreignAutoRefresh = true)
     private HistoryEntry historyEntry;
 
+    public String printData() {
+        return Joiner.on(", ").join(playerName, characterName, String.valueOf(totalExp));
+    }
 }

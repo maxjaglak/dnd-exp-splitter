@@ -36,4 +36,5 @@
     <string name="bonus_exp_label">Bonus exp:</string>
     <string name="really">Really?</string>
     <string name="exit">Exit?</string>
+    <string name="history_results">History results</string>
 </resources>

@@ -36,6 +36,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/run_survey" />
 
+            <Button
+                android:id="@+id/history"
+                style="@style/button.main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/history_results" />
+
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
