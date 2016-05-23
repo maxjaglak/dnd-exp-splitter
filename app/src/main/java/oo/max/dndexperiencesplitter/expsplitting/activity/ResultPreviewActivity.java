@@ -16,11 +16,15 @@ import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
 import oo.max.dndexperiencesplitter.expsplitting.adapter.ResultAdapter;
 import oo.max.dndexperiencesplitter.expsplitting.model.ExpResult;
 import oo.max.dndexperiencesplitter.expsplitting.service.ExpSplittingManager;
+import oo.max.dndexperiencesplitter.history.service.HistoryDataService;
 
 public class ResultPreviewActivity extends AbstractBaseActivity {
 
     @Inject
     ExpSplittingManager expSplittingManager;
+
+    @Inject
+    HistoryDataService historyDataService;
 
     @Bind(R.id.recycler_view)
     RecyclerView expResultsRecyclerView;
@@ -30,6 +34,7 @@ public class ResultPreviewActivity extends AbstractBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splitting_result);
         List<ExpResult> expResults = expSplittingManager.calculateExp();
+        historyDataService.saveExpSplittingResult(expResults);
         expResultsRecyclerView.setAdapter(new ResultAdapter(this, expResults));
         expResultsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

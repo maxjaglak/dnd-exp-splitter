@@ -14,15 +14,19 @@ import java.util.List;
 
 import oo.max.dndexperiencesplitter.app.Logger;
 import oo.max.dndexperiencesplitter.category.model.Category;
+import oo.max.dndexperiencesplitter.history.model.HistoryEntry;
+import oo.max.dndexperiencesplitter.history.model.PlayerHistoryEntry;
 import oo.max.dndexperiencesplitter.player.model.Player;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private final List<Class<?>> clazzes = ImmutableList.of(Player.class,
-            Category.class);
+            Category.class,
+            HistoryEntry.class,
+            PlayerHistoryEntry.class);
 
     public DatabaseHelper(Context context) {
-        super(context, "oo.max.dndexpsplitter", null, 5);
+        super(context, "oo.max.dndexpsplitter", null, 7);
         getWritableDatabase();
     }
 

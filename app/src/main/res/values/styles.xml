@@ -8,6 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textViewStyle">@style/text</item>
         <item name="android:buttonStyle">@style/button</item>
+        <item name="android:editTextStyle">@style/edit</item>
+    </style>
+
+    <style name="edit" parent="Widget.AppCompat.EditText">
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
     </style>
 
     <style name="container">
@@ -17,7 +23,7 @@
 
     <style name="container.inner">
         <item name="android:background">@color/background.card</item>
-        <item name="android:padding">@dimen/margin.small</item>
+        <item name="android:padding">@dimen/margin.small</item>er
     </style>
 
     <style name="text">
