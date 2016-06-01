@@ -70,4 +70,9 @@ public class PlayersPickingAdapter extends RecyclerView.Adapter<PlayerPickingVie
         notifyDataSetChanged();
     }
 
+    public void selectAllPlayers() {
+        pickedPlayers.addAll(playersToPick);
+        notifyDataSetChanged();
+    }
+
 }

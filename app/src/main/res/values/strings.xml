@@ -37,4 +37,5 @@
     <string name="really">Really?</string>
     <string name="exit">Exit?</string>
     <string name="history_results">History results</string>
+    <string name="select_all">Select all</string>
 </resources>

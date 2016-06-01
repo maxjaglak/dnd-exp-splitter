@@ -38,6 +38,11 @@ public class PickPlayersActivity extends AbstractBaseActivity {
         loadPlayersForPickingAction.load(pickPlayersView);
     }
 
+    @OnClick(R.id.select_all)
+    public void selectAllPlayers() {
+        ((PlayersPickingAdapter) pickPlayersView.getAdapter()).selectAllPlayers();
+    }
+
     @OnClick(R.id.ok)
     public void pickSelectedPlayers() {
         if(!validate()) {
