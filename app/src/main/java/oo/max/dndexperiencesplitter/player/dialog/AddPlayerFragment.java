@@ -38,6 +38,7 @@ import oo.max.dndexperiencesplitter.player.model.Player;
 public class AddPlayerFragment extends DialogFragment implements LoaderManager.LoaderCallbacks {
 
     public static final String PLAYER_ID = "playerId";
+
     @Inject
     PlayerDao playerDao;
 
@@ -175,19 +176,35 @@ public class AddPlayerFragment extends DialogFragment implements LoaderManager.L
         return true;
     }
 
-    private boolean validateCharacter() {
-        if(characterName.getText().toString().isEmpty()) {
-            characterName.setError(getActivity().getString(R.string.character_name_validation_message));
-            return false;
-        }
-        return true;
-    }
-
     private boolean validatePlayer() {
-        if(playerName.getText().toString().isEmpty()) {
+        String playerNameText = playerName.getText().toString();
+        if(playerNameText.isEmpty()) {
             playerName.setError(getActivity().getString(R.string.name_required));
             return false;
         }
+
+        Optional<Player> playerByName = playerDao.getByName(playerNameText);
+        if(playerByName.isPresent() && playerByName.get().getId() != playerId) {
+            playerName.setError(getActivity().getString(R.string.player_name_already_exists_validation));
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validateCharacter() {
+        String characterNameText = characterName.getText().toString();
+        if(characterNameText.isEmpty()) {
+            characterName.setError(getActivity().getString(R.string.character_name_validation_message));
+            return false;
+        }
+
+        Optional<Player> playerByCharacterName = playerDao.getByCharacterName(characterNameText);
+        if(playerByCharacterName.isPresent() && playerByCharacterName.get().getId() != playerId) {
+            characterName.setError(getActivity().getString(R.string.player_with_character_name_already_exists_validation));
+            return false;
+        }
+
         return true;
     }
 

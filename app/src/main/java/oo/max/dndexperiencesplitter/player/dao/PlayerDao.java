@@ -62,4 +62,38 @@ public class PlayerDao extends AbstractDao<Player, Long> {
             throw new RuntimeException(e);
         }
     }
+
+    public Optional<Player> getByName(String name) {
+        try {
+            List<Player> players = dao.queryBuilder()
+                    .where()
+                    .eq("name", name)
+                    .query();
+
+            return firstOrAbsent(players);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Optional<Player> getByCharacterName(String characterName) {
+        try {
+            List<Player> players = dao.queryBuilder()
+                    .where()
+                    .eq("characterName", characterName)
+                    .query();
+
+            return firstOrAbsent(players);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private Optional<Player> firstOrAbsent(List<Player> players) {
+        if(!players.isEmpty()) {
+            return Optional.fromNullable(players.get(0));
+        }
+
+        return Optional.absent();
+    }
 }
