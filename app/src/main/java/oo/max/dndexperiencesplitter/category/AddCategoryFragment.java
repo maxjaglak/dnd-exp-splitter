@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnTextChanged;
 import de.greenrobot.event.EventBus;
 import oo.max.dndexperiencesplitter.R;
 import oo.max.dndexperiencesplitter.app.ExpApplication;
@@ -61,6 +62,16 @@ public class AddCategoryFragment extends DialogFragment {
                 .show();
     }
 
+    @OnTextChanged(R.id.category_name)
+    public void onCategoryNameTextChanged() {
+        validateCategoryName();
+    }
+
+    @OnTextChanged(R.id.category_value)
+    public void onCategoryValueTextChanged() {
+        validateValue();
+    }
+
     @OnClick(R.id.cancel)
     public void cancel() {
         dismiss();
@@ -72,15 +83,33 @@ public class AddCategoryFragment extends DialogFragment {
             return;
         }
 
-        saveNewPlayer();
+        saveNewCategory();
     }
 
     private boolean validate() {
-        if(categoryName.getText().toString().isEmpty()) {
-            categoryName.setError(getActivity().getString(R.string.player_name_required));
+        if(!validateCategoryName() || !validateValue()) {
             return false;
         }
 
+        return true;
+    }
+
+    private boolean validateCategoryName() {
+        String categoryNameText = categoryName.getText().toString();
+        if(categoryNameText.isEmpty()) {
+            categoryName.setError(getActivity().getString(R.string.name_required));
+            return false;
+        }
+
+        if(categoryDao.getById(categoryNameText).isPresent()) {
+            categoryName.setError(getActivity().getString(R.string.category_already_exists_validation));
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validateValue() {
         if(categoryValue.getText().toString().isEmpty()) {
             categoryValue.setError(getActivity().getString(R.string.category_value_required));
             return false;
@@ -89,7 +118,7 @@ public class AddCategoryFragment extends DialogFragment {
         return true;
     }
 
-    private void saveNewPlayer() {
+    private void saveNewCategory() {
         Category category = Category.builder()
                 .name(categoryName.getText().toString())
                 .value(Integer.parseInt(categoryValue.getText().toString()))

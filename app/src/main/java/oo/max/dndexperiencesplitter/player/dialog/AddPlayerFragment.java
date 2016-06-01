@@ -185,7 +185,7 @@ public class AddPlayerFragment extends DialogFragment implements LoaderManager.L
 
     private boolean validatePlayer() {
         if(playerName.getText().toString().isEmpty()) {
-            playerName.setError(getActivity().getString(R.string.player_name_required));
+            playerName.setError(getActivity().getString(R.string.name_required));
             return false;
         }
         return true;

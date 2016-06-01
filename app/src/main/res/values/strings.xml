@@ -9,7 +9,7 @@
     <string name="name">Name</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
-    <string name="player_name_required">Name is required!</string>
+    <string name="name_required">Name is required!</string>
     <string name="delete_question">Delete?</string>
     <string name="player_deleted">Player deleted</string>
     <string name="value">Value</string>
@@ -38,4 +38,5 @@
     <string name="exit">Exit?</string>
     <string name="history_results">History results</string>
     <string name="select_all">Select all</string>
+    <string name="category_already_exists_validation">Category with this name already exists!</string>
 </resources>
