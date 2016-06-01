@@ -5,16 +5,21 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 
 import javax.inject.Inject;
 
+import de.greenrobot.event.EventBus;
 import oo.max.dndexperiencesplitter.category.adapter.CategoryViewHolder;
 import oo.max.dndexperiencesplitter.category.dao.CategoryDao;
+import oo.max.dndexperiencesplitter.category.event.CategoryUpdatedEvent;
 
 public class CategorySwipeToDeleteAction extends ItemTouchHelper.Callback {
 
     private final CategoryDao categoryDao;
+    private final EventBus eventBus;
 
     @Inject
-    public CategorySwipeToDeleteAction(CategoryDao categoryDao) {
+    public CategorySwipeToDeleteAction(CategoryDao categoryDao,
+                                       EventBus eventBus) {
         this.categoryDao = categoryDao;
+        this.eventBus = eventBus;
     }
 
     @Override
@@ -33,5 +38,7 @@ public class CategorySwipeToDeleteAction extends ItemTouchHelper.Callback {
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         CategoryViewHolder categoryViewHolder = (CategoryViewHolder) viewHolder;
         categoryDao.remove(((CategoryViewHolder) viewHolder).getCategory());
+
+        eventBus.post(new CategoryUpdatedEvent());
     }
 }

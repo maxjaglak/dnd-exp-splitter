@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import de.greenrobot.event.EventBus;
 import oo.max.dndexperiencesplitter.category.adapter.CategoryViewHolder;
 import oo.max.dndexperiencesplitter.category.dao.CategoryDao;
 import oo.max.dndexperiencesplitter.category.model.Category;
@@ -24,11 +25,14 @@ public class CategorySwipeToDeleteActionTest {
     @Mock
     CategoryViewHolder categoryViewHolder;
 
+    @Mock
+    EventBus eventBus;
+
     private CategorySwipeToDeleteAction categorySwipeToDeleteAction;
 
     @Before
     public void setup() {
-        categorySwipeToDeleteAction = new CategorySwipeToDeleteAction(categoryDao);
+        categorySwipeToDeleteAction = new CategorySwipeToDeleteAction(categoryDao, eventBus);
     }
 
     @Test
