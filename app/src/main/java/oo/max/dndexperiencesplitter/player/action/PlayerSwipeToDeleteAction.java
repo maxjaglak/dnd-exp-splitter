@@ -6,18 +6,23 @@ import android.widget.Toast;
 
 import javax.inject.Inject;
 
+import de.greenrobot.event.EventBus;
 import oo.max.dndexperiencesplitter.R;
 import oo.max.dndexperiencesplitter.player.adapter.PlayerViewHolder;
 import oo.max.dndexperiencesplitter.player.dao.PlayerDao;
+import oo.max.dndexperiencesplitter.player.event.PlayerUpdatedEvent;
 import oo.max.dndexperiencesplitter.player.model.Player;
 
 public class PlayerSwipeToDeleteAction extends ItemTouchHelper.Callback {
 
     private final PlayerDao playerDao;
+    private final EventBus eventBus;
 
     @Inject
-    public PlayerSwipeToDeleteAction(PlayerDao playerDao) {
+    public PlayerSwipeToDeleteAction(PlayerDao playerDao,
+                                     EventBus eventBus) {
         this.playerDao = playerDao;
+        this.eventBus = eventBus;
     }
 
     @Override
@@ -41,5 +46,7 @@ public class PlayerSwipeToDeleteAction extends ItemTouchHelper.Callback {
                 R.string.player_deleted,
                 Toast.LENGTH_SHORT)
                 .show();
+
+        eventBus.post(new PlayerUpdatedEvent());
     }
 }
