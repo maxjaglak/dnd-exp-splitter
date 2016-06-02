@@ -41,4 +41,5 @@
     <string name="category_already_exists_validation">Category with this name already exists!</string>
     <string name="player_name_already_exists_validation">Player with that name already exists!</string>
     <string name="player_with_character_name_already_exists_validation">Player with this character name already exists!</string>
+    <string name="player_and_categories_required">You have to add some players and categories first!</string>
 </resources>

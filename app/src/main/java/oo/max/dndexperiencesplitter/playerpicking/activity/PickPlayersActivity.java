@@ -53,6 +53,8 @@ public class PickPlayersActivity extends AbstractBaseActivity {
         Intent intent = new Intent(this, MaxExpActivity.class);
         intent.putExtra(SurveyActivity.PICKING_REQUEST_PARAM, pickingRequest);
         startActivity(intent);
+
+        finish();
     }
 
     private boolean validate() {
