@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/survey_background" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,6 +31,7 @@
             android:id="@+id/lock_player_assessment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
             android:text="@string/lock_assessment" />
 
         <LinearLayout
@@ -33,13 +39,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.8"
-            android:visibility="gone"
-            android:gravity="center">
+            android:gravity="center"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/assessment_locked"/>
+                android:text="@string/assessment_locked" />
 
         </LinearLayout>
 
@@ -53,6 +59,7 @@
             android:id="@+id/split"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
             android:text="@string/split_button_label" />
 
     </LinearLayout>

@@ -13,8 +13,7 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/container"
-        style="@style/container"
-        android:background="@android:color/transparent"
+        style="@style/container.transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

@@ -13,7 +13,7 @@
     <TextView
         android:text="@string/splash_screen_name"
         android:layout_centerInParent="true"
-        android:background="@color/button.main.semi_transparent"
+        android:background="@color/gray.semi_transparent"
         style="@style/text.title"
         android:layout_margin="@dimen/margin.big.double"
         android:layout_alignParentBottom="true"

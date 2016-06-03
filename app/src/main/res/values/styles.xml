@@ -21,6 +21,10 @@
         <item name="android:padding">@dimen/margin</item>
     </style>
 
+    <style name="container.transparent">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
     <style name="container.inner">
         <item name="android:background">@color/background.card</item>
         <item name="android:padding">@dimen/margin.small</item>er
@@ -64,7 +68,7 @@
     </style>
 
     <style name="button.main.semi_transparent" parent="button.main">
-        <item name="android:background">@color/button.main.semi_transparent</item>
+        <item name="android:background">@color/gray.semi_transparent</item>
     </style>
 
     <style name="cardview" parent="container.inner">
