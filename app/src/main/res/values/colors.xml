@@ -13,5 +13,7 @@
     <color name="button.normal">@android:color/holo_blue_light</color>
     <color name="button.pressed">@android:color/holo_blue_dark</color>
 
+    <color name="button.main.semi_transparent">#cccccccc</color>
+
 
 </resources>
