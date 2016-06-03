@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 
 import oo.max.dndexperiencesplitter.app.ExpApplication;
+import oo.max.dndexperiencesplitter.app.Logger;
 import oo.max.dndexperiencesplitter.menu.activity.MainActivity;
 
 public class InitializeInjectorAction {
+
+    private final long SPLASH_SCREEN_DELAY_MILLIS = 800;
 
     private final Context context;
 
@@ -35,7 +38,12 @@ public class InitializeInjectorAction {
     class InitAsyncTask extends AsyncTask {
         @Override
         protected Object doInBackground(Object[] params) {
-            initApp();
+            try {
+                initApp();
+                Thread.sleep(SPLASH_SCREEN_DELAY_MILLIS);
+            } catch (InterruptedException e) {
+                Logger.error(e);
+            }
             return null;
         }
 

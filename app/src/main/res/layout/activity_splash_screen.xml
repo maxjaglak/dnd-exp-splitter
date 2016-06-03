@@ -4,9 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:src="@drawable/splash_dragon"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:text="@string/splash_screen_name"
         android:layout_centerInParent="true"
+        android:background="@color/button.main.semi_transparent"
+        style="@style/text.title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
