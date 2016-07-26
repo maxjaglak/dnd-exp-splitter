@@ -4,6 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
 import com.google.common.collect.FluentIterable;
+import com.j256.ormlite.stmt.SelectArg;
 import com.j256.ormlite.stmt.UpdateBuilder;
 
 import java.sql.SQLException;
@@ -65,9 +66,10 @@ public class PlayerDao extends AbstractDao<Player, Long> {
 
     public Optional<Player> getByName(String name) {
         try {
+            SelectArg nameArg = new SelectArg(name);
             List<Player> players = dao.queryBuilder()
                     .where()
-                    .eq("name", name)
+                    .eq("name", nameArg)
                     .query();
 
             return firstOrAbsent(players);
@@ -78,9 +80,10 @@ public class PlayerDao extends AbstractDao<Player, Long> {
 
     public Optional<Player> getByCharacterName(String characterName) {
         try {
+            SelectArg characterNameArg = new SelectArg(characterName);
             List<Player> players = dao.queryBuilder()
                     .where()
-                    .eq("characterName", characterName)
+                    .eq("characterName", characterNameArg)
                     .query();
 
             return firstOrAbsent(players);
