@@ -9,21 +9,42 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".launch.activity.SplashScreenActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".launch.activity.SplashScreenActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".menu.activity.MainActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".player.activity.PlayerListActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".category.activity.CategoryListActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".playerpicking.activity.PickPlayersActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".expsplitting.activity.MaxExpActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".expsplitting.activity.SurveyActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".expsplitting.activity.ResultPreviewActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".history.activity.HistoryResultsActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".menu.activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".player.activity.PlayerListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".category.activity.CategoryListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".playerpicking.activity.PickPlayersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".expsplitting.activity.MaxExpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".expsplitting.activity.SurveyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".expsplitting.activity.ResultPreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".history.activity.HistoryResultsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".license.LicenseActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

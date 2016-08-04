@@ -11,6 +11,7 @@ import oo.max.dndexperiencesplitter.expsplitting.activity.ResultPreviewActivity;
 import oo.max.dndexperiencesplitter.expsplitting.activity.SurveyActivity;
 import oo.max.dndexperiencesplitter.expsplitting.view.AssessPlayerView;
 import oo.max.dndexperiencesplitter.history.activity.HistoryResultsActivity;
+import oo.max.dndexperiencesplitter.license.LicenseActivity;
 import oo.max.dndexperiencesplitter.menu.activity.MainActivity;
 import oo.max.dndexperiencesplitter.player.activity.PlayerListActivity;
 import oo.max.dndexperiencesplitter.player.dialog.AddPlayerFragment;
@@ -36,5 +37,6 @@ public interface ApplicationComponent {
     void inject(AssessPlayerView assessPlayerView);
     void inject(ResultPreviewActivity resultPreviewActivity);
     void inject(HistoryResultsActivity historyResultsActivity);
+    void inject(LicenseActivity licenseActivity);
 
 }

@@ -46,4 +46,5 @@
     <string name="assessment_locked">Rating locked, pick another player or split exp!</string>
     <string name="lock_assessment_confirmation_title">Lock assessment?</string>
     <string name="lock_assessment_confirmation_message">Once you lock your assessment no one will be able to view this rating and it will be impossible to make changes to those ratings.</string>
+    <string name="license">License</string>
 </resources>

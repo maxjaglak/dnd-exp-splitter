@@ -16,6 +16,7 @@ import oo.max.dndexperiencesplitter.category.activity.CategoryListActivity;
 import oo.max.dndexperiencesplitter.category.dao.CategoryDao;
 import oo.max.dndexperiencesplitter.core.activity.AbstractBaseActivity;
 import oo.max.dndexperiencesplitter.history.activity.HistoryResultsActivity;
+import oo.max.dndexperiencesplitter.license.LicenseActivity;
 import oo.max.dndexperiencesplitter.player.activity.PlayerListActivity;
 import oo.max.dndexperiencesplitter.player.dao.PlayerDao;
 import oo.max.dndexperiencesplitter.playerpicking.activity.PickPlayersActivity;
@@ -62,6 +63,9 @@ public class MainActivity extends AbstractBaseActivity {
                 break;
             case R.id.drawer_history:
                 startHistoryResultsActivity();
+                break;
+            case R.id.drawer_license:
+                startActivity(new Intent(this, LicenseActivity.class));
                 break;
         }
 

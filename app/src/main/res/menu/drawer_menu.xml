@@ -16,5 +16,10 @@
         <item
             android:id="@+id/drawer_history"
             android:title="@string/history_results" />
+
+        <item
+            android:id="@+id/drawer_license"
+            android:title="@string/license"/>
+
     </group>
 </menu>
