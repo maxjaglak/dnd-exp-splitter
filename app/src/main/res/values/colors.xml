@@ -15,5 +15,7 @@
 
     <color name="gray.semi_transparent">#cccccccc</color>
 
+    <color name="white.semi_transparent">#ccffffff</color>
+
 
 </resources>
